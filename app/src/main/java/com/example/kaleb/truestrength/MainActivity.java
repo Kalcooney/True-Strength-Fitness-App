@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
         long id = 4;
         dbHandler = new MyDBHandler(this, null, null, 1);
         text = (TextView) findViewById(R.id.text);
-        String timer = Long.toString(dbHandler.getRestTime(id));
-        text.setText(timer);
+        text.setText(dbHandler.getExerciseName(id));
 
     }
 }
