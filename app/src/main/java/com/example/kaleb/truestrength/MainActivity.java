@@ -17,9 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
         String week = "Week 1";
         String day = "Day 1";
-
+        long id = 4;
         dbHandler = new MyDBHandler(this, null, null, 1);
         text = (TextView) findViewById(R.id.text);
-        text.setText(dbHandler.getWeek(week));
+        String timer = Long.toString(dbHandler.getRestTime(id));
+        text.setText(timer);
+
     }
 }

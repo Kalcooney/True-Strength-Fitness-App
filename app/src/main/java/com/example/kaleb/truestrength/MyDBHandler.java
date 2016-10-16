@@ -53,7 +53,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
                 COLUMN_WEIGHT + " INTEGER, " +
                 COLUMN_NUM_REPS + " INTEGER, " +
                 "FOREIGN KEY(" + COLUMN_EX_ID + ") REFERENCES " + TABLE_EXERCISES + "(" +
-                COLUMN_EX_ID + "));";
+                COLUMN_EXERCISE_ID + "));";
 
         sqLiteDatabase.execSQL(exQuery);
         sqLiteDatabase.execSQL(udQuery);
@@ -125,7 +125,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         return dbString;
     }
 
-    //method to display current week
+    //method to get current week
     public String getWeek(String Week){
         String week = "";
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -141,30 +141,57 @@ public class MyDBHandler extends SQLiteOpenHelper{
         sqLiteDatabase.close();
         return week;
     }
-    
 
-
-    public String getExerciseName(String week, String day){
-        String field = "";
+    //method to get current day
+    public String getDay(String Day){
+        String day = "";
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_EXERCISES;
+        String query = "SELECT " + COLUMN_DAY + " FROM " + TABLE_EXERCISES + " WHERE " + COLUMN_DAY + " = '" + Day + "';";
 
         Cursor c = sqLiteDatabase.rawQuery(query, null);
         c.moveToFirst();
 
-        while(!c.isAfterLast()){
-            if(c.getString(c.getColumnIndex("ID")) != null){
-                field += c.getString(c.getColumnIndex("ID"));
-                field += "\t";
-                if(c.getString(c.getColumnIndex("exerciseName")) != null){
-                    field += c.getString(c.getColumnIndex("exerciseName"));
-                    field += '\n';
-                }
-            }
-            c.moveToNext();
+        if(c.getString(c.getColumnIndex("Day")) != null){
+            day += c.getString(c.getColumnIndex("Day"));
         }
 
         sqLiteDatabase.close();
-        return field;
+        return day;
+    }
+
+    //method to get the Exercise Name
+    public String getExerciseName(long id){
+        String exName = "";
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String query = "SELECT " + COLUMN_EXERCISE_NAME + " FROM " + TABLE_EXERCISES + " WHERE " + COLUMN_EXERCISE_ID + " = " + id;
+
+        Cursor c = sqLiteDatabase.rawQuery(query, null);
+        c.moveToFirst();
+
+        if(c.getString(c.getColumnIndex("exerciseName")) != null){
+            exName += c.getString(c.getColumnIndex("exerciseName"));
+        }
+
+        sqLiteDatabase.close();
+        return exName;
+    }
+
+    //method to get the Exercise Number
+    public String getExerciseNumber(){
+        String exNum = "";
+
+        return exNum;
+    }
+
+    public long getRestTime(long id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String query = "SELECT " + COLUMN_REST_TIME + " FROM " + TABLE_EXERCISES + " WHERE " + COLUMN_EXERCISE_ID + " = " + id;
+
+        Cursor c = sqLiteDatabase.rawQuery(query, null);
+        c.moveToFirst();
+
+        long restTime = c.getLong(6);
+        sqLiteDatabase.close();
+        return restTime;
     }
 }
