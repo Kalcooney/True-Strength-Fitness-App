@@ -7,10 +7,218 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kaleb.truestrength.MainActivity">
+    tools:context="com.example.kaleb.truestrength.MainActivity"
+    android:background="#000000">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text" />
+        android:contextClickable="false"
+        android:id="@+id/menuTable"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extra"
+                android:id="@+id/extraButton"
+                android:layout_column="0"
+                android:layout_weight="0.5"
+                android:textColor="#eeff00"
+                android:background="@drawable/yellowborder"
+                android:layout_gravity="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My   Profile"
+                android:id="@+id/myprofileButton"
+                android:layout_column="1"
+                android:layout_weight="0.25"
+                android:background="#eeff00"
+                android:textColor="#000000"
+                android:layout_gravity="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Exercise"
+                android:id="@+id/myexerciseButton"
+                android:layout_column="2"
+                android:layout_weight="0.25"
+                android:textColor="#eeff00"
+                android:background="@drawable/yellowborder"
+                android:layout_gravity="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="True Strength"
+                android:id="@+id/truestrengthButton"
+                android:layout_column="3"
+                android:layout_weight="0.25"
+                android:textColor="#eeff00"
+                android:background="@drawable/yellowborder"
+                android:layout_gravity="center" />
+        </TableRow>
+
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/menuTable"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/whiteborder">
+
+        <TextView
+            android:text="WELCOME TO\n TRUE STRENGTH"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:id="@+id/titleText"
+            android:textColor="#eeff00"/>
+
+        <TextView
+            android:text="CREATE YOUR PROFILE"
+            android:textColor="#ffffff"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="79dp"
+            android:id="@+id/secondTitleText" />
+
+        <TextView
+            android:text="Name:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="122dp"
+            android:id="@+id/nameLabel" />
+
+        <TextView
+            android:text="DOB:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dobLabel"
+            android:layout_below="@+id/nameLabel"
+            android:layout_alignStart="@+id/nameLabel"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:text="Gender:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/genderLabel"
+            android:layout_below="@+id/dobLabel"
+            android:layout_alignStart="@+id/dobLabel"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:text="Height:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/heightLabel"
+            android:layout_below="@+id/genderLabel"
+            android:layout_alignStart="@+id/genderLabel"
+            android:layout_marginTop="17dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/nameText"
+            android:layout_alignTop="@+id/nameLabel"
+            android:layout_alignStart="@+id/titleText"
+            android:layout_marginStart="19dp"
+            android:layout_alignBottom="@+id/nameLabel" />
+
+        <TextView
+            android:text="Weight:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/weightLabel"
+            android:layout_marginTop="23dp"
+            android:layout_below="@+id/heightLabel"
+            android:layout_alignStart="@+id/heightLabel" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/dobText"
+            android:layout_alignTop="@+id/dobLabel"
+            android:layout_alignStart="@+id/nameText"
+            android:layout_above="@+id/genderLabel" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/genderText"
+            android:layout_alignTop="@+id/genderLabel"
+            android:layout_alignStart="@+id/dobText"
+            android:layout_alignBottom="@+id/genderLabel" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/heightText"
+            android:layout_alignTop="@+id/heightLabel"
+            android:layout_alignStart="@+id/genderText"
+            android:layout_above="@+id/weightLabel" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/weightText"
+            android:layout_alignTop="@+id/weightLabel"
+            android:layout_alignStart="@+id/heightText"
+            android:layout_above="@+id/saveButton" />
+
+        <Button
+            android:text="SAVE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveButton"
+            android:onClick="saveClicked"
+            android:layout_below="@+id/weightLabel"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
 </RelativeLayout>
