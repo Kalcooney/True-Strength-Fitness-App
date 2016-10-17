@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -20,26 +21,12 @@ public class Splash_Screen extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setContentView(R.layout.activity_splash__screen);
+    }
 
-        Runnable r = new Runnable(){
-
-            @Override
-            public void run() {
-                long futureTime = System.currentTimeMillis() + 3000;
-                while(System.currentTimeMillis() < futureTime){
-                    synchronized (this){
-                        try{
-                            wait(futureTime - System.currentTimeMillis());
-                            Intent mainMenu = new Intent(getBaseContext(), MainActivity.class);
-                            startActivity(mainMenu);
-                            finish();
-                        }catch(Exception e){}
-                    }
-                }
-            }
-        };
-        Thread waitThread = new Thread(r);
-        waitThread.start();
-
+    //onClick method for the button
+    public void buttonClicked(View view){
+        Intent mainScreen = new Intent(this, MainActivity.class);
+        startActivity(mainScreen);
+        finish();
     }
 }
