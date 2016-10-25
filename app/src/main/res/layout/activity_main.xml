@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,218 +7,138 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kaleb.truestrength.MainActivity"
+    tools:context="com.example.kaleb.truestrength.CreateProfileActivity"
     android:background="#000000">
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:contextClickable="false"
-        android:id="@+id/menuTable"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Extra"
-                android:id="@+id/extraButton"
-                android:layout_column="0"
-                android:layout_weight="0.5"
-                android:textColor="#eeff00"
-                android:background="@drawable/yellowborder"
-                android:layout_gravity="center" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My   Profile"
-                android:id="@+id/myprofileButton"
-                android:layout_column="1"
-                android:layout_weight="0.25"
-                android:background="#eeff00"
-                android:textColor="#000000"
-                android:layout_gravity="center" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My Exercise"
-                android:id="@+id/myexerciseButton"
-                android:layout_column="2"
-                android:layout_weight="0.25"
-                android:textColor="#eeff00"
-                android:background="@drawable/yellowborder"
-                android:layout_gravity="center" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="True Strength"
-                android:id="@+id/truestrengthButton"
-                android:layout_column="3"
-                android:layout_weight="0.25"
-                android:textColor="#eeff00"
-                android:background="@drawable/yellowborder"
-                android:layout_gravity="center" />
-        </TableRow>
-
-    </TableLayout>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/menuTable"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/whiteborder">
+        android:orientation="vertical">
 
-        <TextView
-            android:text="WELCOME TO\n TRUE STRENGTH"
-            android:textAlignment="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
-            android:id="@+id/titleText"
-            android:textColor="#eeff00"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/table">
 
-        <TextView
-            android:text="CREATE YOUR PROFILE"
-            android:textColor="#ffffff"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="79dp"
-            android:id="@+id/secondTitleText" />
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:contextClickable="false"
+                android:id="@+id/menuTable"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
 
-        <TextView
-            android:text="Name:"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="122dp"
-            android:id="@+id/nameLabel" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
 
-        <TextView
-            android:text="DOB:"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dobLabel"
-            android:layout_below="@+id/nameLabel"
-            android:layout_alignStart="@+id/nameLabel"
-            android:layout_marginTop="15dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Extra"
+                        android:id="@+id/extraButton"
+                        android:layout_column="0"
+                        android:layout_weight="0.5"
+                        android:textColor="#eeff00"
+                        android:background="@drawable/yellowborder"
+                        android:layout_gravity="center" />
 
-        <TextView
-            android:text="Gender:"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/genderLabel"
-            android:layout_below="@+id/dobLabel"
-            android:layout_alignStart="@+id/dobLabel"
-            android:layout_marginTop="16dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My   Profile"
+                        android:id="@+id/myprofileButton"
+                        android:layout_column="1"
+                        android:layout_weight="0.25"
+                        android:background="#eeff00"
+                        android:textColor="#000000"
+                        android:layout_gravity="center" />
 
-        <TextView
-            android:text="Height:"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/heightLabel"
-            android:layout_below="@+id/genderLabel"
-            android:layout_alignStart="@+id/genderLabel"
-            android:layout_marginTop="17dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Exercise"
+                        android:id="@+id/myexerciseButton"
+                        android:layout_column="2"
+                        android:layout_weight="0.25"
+                        android:textColor="#eeff00"
+                        android:background="@drawable/yellowborder"
+                        android:layout_gravity="center" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/nameText"
-            android:layout_alignTop="@+id/nameLabel"
-            android:layout_alignStart="@+id/titleText"
-            android:layout_marginStart="19dp"
-            android:layout_alignBottom="@+id/nameLabel" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="True Strength"
+                        android:id="@+id/truestrengthButton"
+                        android:layout_column="3"
+                        android:layout_weight="0.25"
+                        android:textColor="#eeff00"
+                        android:background="@drawable/yellowborder"
+                        android:layout_gravity="center" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
 
-        <TextView
-            android:text="Weight:"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/weightLabel"
-            android:layout_marginTop="23dp"
-            android:layout_below="@+id/heightLabel"
-            android:layout_alignStart="@+id/heightLabel" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="378dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/whiteborder">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/dobText"
-            android:layout_alignTop="@+id/dobLabel"
-            android:layout_alignStart="@+id/nameText"
-            android:layout_above="@+id/genderLabel" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/genderText"
-            android:layout_alignTop="@+id/genderLabel"
-            android:layout_alignStart="@+id/dobText"
-            android:layout_alignBottom="@+id/genderLabel" />
+            <TextView
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/welcomeText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:textColor="#eeff00"
+                android:text="WELCOME TO\n TRUE STRENGTH!"
+                android:textAlignment="center"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/heightText"
-            android:layout_alignTop="@+id/heightLabel"
-            android:layout_alignStart="@+id/genderText"
-            android:layout_above="@+id/weightLabel" />
+            <TextView
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcomeText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"
+                android:id="@+id/createProfileText"
+                android:text="CREATE YOUR PROFILE!"
+                android:textColor="#ffffff"
+                android:textAlignment="center"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/weightText"
-            android:layout_alignTop="@+id/weightLabel"
-            android:layout_alignStart="@+id/heightText"
-            android:layout_above="@+id/saveButton" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:id="@+id/nameLabel"
+                android:text="Name:"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_below="@+id/createProfileText"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="13dp" />
 
-        <Button
-            android:text="SAVE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/saveButton"
-            android:onClick="saveClicked"
-            android:layout_below="@+id/weightLabel"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:ems="10"
+                android:layout_alignTop="@+id/nameLabel"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="19dp"
+                android:id="@+id/editText"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_alignBottom="@+id/nameLabel"
+                android:inputType="textPersonName" />
+        </RelativeLayout>
 
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 public class Splash_Screen extends AppCompatActivity {
 
@@ -25,7 +24,7 @@ public class Splash_Screen extends AppCompatActivity {
 
     //onClick method for the button
     public void buttonClicked(View view){
-        Intent mainScreen = new Intent(this, MainActivity.class);
+        Intent mainScreen = new Intent(this, CreateProfileActivity.class);
         startActivity(mainScreen);
         finish();
     }
