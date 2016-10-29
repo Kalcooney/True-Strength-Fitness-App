@@ -1,6 +1,7 @@
 package com.example.kaleb.truestrength;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,7 @@ public class ProfileScreen extends AppCompatActivity {
 
     //onClick method that takes user to the True Strength page
     public void trueStrengthClicked(View view){
-
+        Intent trueStrength = new Intent(this, TrueStrength.class);
+        startActivity(trueStrength);
     }
 }
