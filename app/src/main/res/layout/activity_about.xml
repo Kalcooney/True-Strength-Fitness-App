@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kaleb.truestrength.TrueStrength"
+    tools:context="com.example.kaleb.truestrength.AboutActivity"
     android:background="#000000">
 
     <LinearLayout
@@ -40,9 +40,10 @@
                         android:id="@+id/extraButton"
                         android:layout_column="0"
                         android:layout_weight="0.5"
-                        android:textColor="#eeff00"
-                        android:background="@drawable/yellowborder"
-                        android:layout_gravity="center" />
+                        android:textColor="#000000"
+                        android:background="#eeff00"
+                        android:layout_gravity="center"
+                        android:onClick="menuClicked" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -75,8 +76,8 @@
                         android:id="@+id/truestrengthButton"
                         android:layout_column="3"
                         android:layout_weight="0.25"
-                        android:textColor="#000000"
-                        android:background="#eeff00"
+                        android:textColor="#eeff00"
+                        android:background="@drawable/yellowborder"
                         android:layout_gravity="center"
                         android:onClick="trueStrengthClicked" />
                 </TableRow>
@@ -92,24 +93,25 @@
 
 
             <TextView
-                android:text="EAT, LIFT, SLEEP, REPEAT"
+                android:text="About Mike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/titleText"
-                android:textColor="#ffffff"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="#ffffff"/>
 
             <TextView
-                android:text='True Strength applies the science of exercise and nutriton together with real world experience to deliver the most relevant health and fitness information and effective programming.   Our True Strength Coach Mike has been working within the fitness industry for numberous years. He holds a Bachelors Degree in Sport and Exercise Science (BSpExSc) and has been utilising different training methods and various nutrition practices to develope a coaching system that works!   Our vision is to have people "Look Good, Feel Good, Perform Better."'
+                android:text="I've created True Strength as a platform for everyone to learn, grow, reach goals and spread information on health and fitness.   It seems like every second person now is a personal trainer, but can you trust everyone? Can you trust the information you're provided?  I hold a Bachelors Degree in Sport and Exercise Science (BSpExSc). I have also been working in the fitness industry training and programming various clients for multiple years. Learning what works and what doesn't after many years of trial and error. I am pleased to say that even I don't hold all the answers... And hope i never do... Because i hold the belief that as soon as we stop learning, we stop growing. But I am dedicated to achieving the best results for MY CLIENTS.  I am proud to be a natural athlete, and dedicate my time to learning and more importantly APPLYING the science behind body composition changes.   Look Good, Feel Good, Perform Better.  Lets get better together.  Mike."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/titleText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
                 android:id="@+id/bodyText"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="#ffffff"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true" />
+                android:textColor="#ffffff"/>
         </RelativeLayout>
 
     </LinearLayout>

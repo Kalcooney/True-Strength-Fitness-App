@@ -18,7 +18,8 @@
         <activity android:name=".CreateProfileActivity" />
         <activity android:name=".ProfileScreen" />
         <activity android:name=".Test" />
-        <activity android:name=".TrueStrength"></activity>
+        <activity android:name=".TrueStrength" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

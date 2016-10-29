@@ -45,7 +45,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor userInfoEditor = userInfo.edit();
 
-        /*if(profileToggle.getBoolean("firstTimeLaunched", true)){
+        if(profileToggle.getBoolean("firstTimeLaunched", true)){
             clearPreferences();
             Intent profileScreen = new Intent(this, ProfileScreen.class);
             startActivity(profileScreen);
@@ -53,9 +53,9 @@ public class CreateProfileActivity extends AppCompatActivity {
         }
         else{
             setContentView(R.layout.activity_main);
-            editor.putBoolean("firstTimeLaunched", false);
-            editor.apply();
-    }*/
+            profileToggleEditor.putBoolean("firstTimeLaunched", false);
+            profileToggleEditor.apply();
+        }
         setContentView(R.layout.activity_main);
 
         //reference text views
