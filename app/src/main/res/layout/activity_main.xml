@@ -82,7 +82,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="378dp"
+            android:layout_height="528dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
@@ -120,7 +120,7 @@
                 android:id="@+id/nameLabel"
                 android:text="Name:"
                 android:textColor="#ffffff"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:layout_below="@+id/createProfileText"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="13dp" />
@@ -128,16 +128,110 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name:"
+                android:inputType="textPersonName"
                 android:ems="10"
-                android:layout_alignTop="@+id/nameLabel"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="19dp"
-                android:id="@+id/editText"
+                android:id="@+id/nameInput"
+                android:textColor="#ffffff"
+                android:layout_below="@+id/nameLabel"
+                android:layout_alignStart="@+id/nameLabel"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:text="DOB:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dobLabel"
                 android:textColor="#ffffff"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:layout_alignBottom="@+id/nameLabel"
-                android:inputType="textPersonName" />
+                android:layout_below="@+id/nameInput"
+                android:layout_alignStart="@+id/nameInput" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:layout_below="@+id/dobLabel"
+                android:layout_alignStart="@+id/dobLabel"
+                android:id="@+id/dobInput"
+                android:layout_alignParentEnd="true"
+                android:textColor="#ffffff"
+                android:onClick="dobClicked" />
+
+            <TextView
+                android:text="Gender:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genderLabel"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_below="@+id/dobInput"
+                android:layout_alignStart="@+id/dobInput" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/genderLabel"
+                android:layout_alignStart="@+id/genderLabel"
+                android:id="@+id/genderInput"
+                android:layout_alignParentEnd="true"
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:text="Height:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/heightLabel"
+                android:textColor="#ffffff"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_below="@+id/genderInput"
+                android:layout_alignStart="@+id/genderInput" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/heightInput"
+                android:textColor="#ffffff"
+                android:layout_below="@+id/heightLabel"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/heightLabel" />
+
+            <TextView
+                android:text="Weight: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/heightInput"
+                android:layout_toStartOf="@+id/createProfileText"
+                android:id="@+id/weightLabel"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/weightLabel"
+                android:layout_alignStart="@+id/weightLabel"
+                android:id="@+id/weightInput"
+                android:layout_alignParentEnd="true"
+                android:textColor="#ffffff"/>
+
+            <Button
+                android:text="SAVE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:id="@+id/savebutton"
+                android:textColor="#eeff00"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="saveClicked" />
+
         </RelativeLayout>
 
     </LinearLayout>
