@@ -45,18 +45,16 @@ public class CreateProfileActivity extends AppCompatActivity {
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor userInfoEditor = userInfo.edit();
 
-        if(profileToggle.getBoolean("firstTimeLaunched", true)){
-            clearPreferences();
+        if(profileToggle.getBoolean("firstTimeLaunched", false)){
             Intent profileScreen = new Intent(this, ProfileScreen.class);
             startActivity(profileScreen);
 
         }
         else{
             setContentView(R.layout.activity_main);
-            profileToggleEditor.putBoolean("firstTimeLaunched", false);
-            profileToggleEditor.apply();
+            profileToggleEditor.putBoolean("firstTimeLaunched", true);
+            profileToggleEditor.commit();
         }
-        setContentView(R.layout.activity_main);
 
         //reference text views
         nameInput = (EditText) findViewById(R.id.nameInput);
@@ -70,8 +68,8 @@ public class CreateProfileActivity extends AppCompatActivity {
         //Check whether app has been launched before to toggle Create Your Profile on or off.
         SharedPreferences profileToggle = getSharedPreferences("profileToggle", Context.MODE_PRIVATE);
         SharedPreferences.Editor profileToggleEditor = profileToggle.edit();
-        profileToggleEditor.putBoolean("firstTimeLaunched", true);
-        profileToggleEditor.apply();
+        profileToggleEditor.putBoolean("firstTimeLaunched", false);
+        profileToggleEditor.commit();
         //store userinfo into Shared Preferences
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor userInfoEditor = userInfo.edit();
@@ -80,7 +78,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         userInfoEditor.putString("Gender", genderInput.getText().toString());
         userInfoEditor.putString("Height", heightInput.getText().toString());
         userInfoEditor.putString("Weight", weightInput.getText().toString());
-        userInfoEditor.apply();
+        userInfoEditor.commit();
         Intent profileScreen = new Intent(this, ProfileScreen.class);
         startActivity(profileScreen);
     }

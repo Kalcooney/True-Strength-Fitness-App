@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script type="text/javascript">
+    function toggle(tag) {
+        var x=document.getElementsByName(tag)[0];
+        var a = x.parentNode
+        if (a.style.display=='block'){
+            a.style.display='none'
+        }else{
+            a.style.display='block'     
+        }
+    }
+
+
+    function init() {
+      
+        var obj = document.getElementById('QA');
+        var elements = obj.getElementsByTagName('li');
+               var index = 1 
+       
+        for (var i=0; i < elements.length; i+=2){
+            var element = elements[i]; 
+            element.innerHTML = "<a href='javascript:toggle(" + index + ")'>" + element.innerHTML + "</a>"
+            index = index + 1
+        } 
+    
+        var index = 1
+        for (var i=1; i < elements.length; i+=2){
+            var element = elements[i]; 
+            element.innerHTML = "<a name='" + index + "' id='" + index + "'></a>" + element.innerHTML 
+            index = index + 1
+                 element.style.padding = '0px 0px 10px 20px'
+                       element.style.listStyleType = 'none'
+            element.style.display = 'none'
+        }       
+     }
+
+
+window.onload = init; 
+
+</script>
+</head>
+<body>
+<div id="QA">
+	<ul>
+		<li>What is this app?</li>
+		<li><br>True Strength is a fitness app that takes you through a three week training plan created
+		by Michael Johnson.</li>
+	</ul>
+	<ul class="bg-img">
+		<li>How to use this app?</li>
+		<li><br><h3><mark>My Profile:</mark></h3> This tab shows the details that you entered on first startup<br>
+			such as your height and weight<br><br>
+			<h3><mark>My Exercises</mark></h3> This is the main chunk of the app. Here, you will go through<br>
+			your daily exercises. Each exercise comes with a how-to that shows you how to do each exercise.
+			</li>
+	</ul>
+	<ul>
+		<li>How can you contact Mike?</li>
+		<li><br>You can get in touch with Mike by going to the official True Strength Facebook page: 
+			<a href="https://www.facebook.com/TrueStrengthNZ/">True Strength NZ</a></li>
+	</ul>
+	<ul>
+		<li>Where can I place feedback or report issues?</li>
+		<li><br>You can place feedback or report issues on the True Strength Facebook page: <a href="https://www.facebook.com/TrueStrengthNZ/">True Strength NZ</a></li>
+	</ul>
+	<ul>
+		<li>Are there any paid features in this app?</li>
+		<li><br>No. This app is completely free. Unlike other apps, all features within this
+			app can be used without any extra cost.</li>
+	</ul>
+	<ul>
+		<li>Privacy Policy</li>
+		<li><br>We value your privacy and as such, this app doesn't send us any of your information. All
+			information you enter into the app is saved locally, so there is no need for us to store any
+			of your information on the web.</li>
+	</ul>
+
+</div>
+</div> 
+</body>
+</html>
