@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class Test extends AppCompatActivity {
 
     TextView testText;
-    MyDBHandler dbHandler;
+    MyDBHandler_Backup dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

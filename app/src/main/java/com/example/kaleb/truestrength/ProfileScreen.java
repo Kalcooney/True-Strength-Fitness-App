@@ -41,7 +41,8 @@ public class ProfileScreen extends AppCompatActivity {
 
     //onClick method that takes user to the My Exercise Screen
     public void myExerciseClicked(View view){
-
+        Intent firstList = new Intent(this, firstList.class);
+        startActivity(firstList);
     }
 
     //onClick method that takes user to the True Strength page
