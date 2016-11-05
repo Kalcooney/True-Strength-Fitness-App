@@ -36,9 +36,10 @@
                     android:id="@+id/extraButton"
                     android:layout_column="0"
                     android:layout_weight="0.5"
-                    android:textColor="#eeff00"
-                    android:background="@drawable/yellowborder"
-                    android:layout_gravity="center" />
+                    android:textColor="#000000"
+                    android:background="#eeff00"
+                    android:layout_gravity="center"
+                    android:onClick="extraClicked" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -47,8 +48,8 @@
                     android:id="@+id/myprofileButton"
                     android:layout_column="1"
                     android:layout_weight="0.25"
-                    android:background="#eeff00"
-                    android:textColor="#000000"
+                    android:background="@drawable/yellowborder"
+                    android:textColor="#eeff00"
                     android:layout_gravity="center"
                     android:onClick="myProfileClicked" />
 

@@ -39,6 +39,13 @@ public class ProfileScreen extends AppCompatActivity {
         weight.setText("Weight: \t" + userInfo.getString("Weight", ""));
     }
 
+    //onClick that takes users to the options menu
+    public void extraClicked(View view){
+        Intent extra = new Intent(this, otherOptionsMenu.class);
+        startActivity(extra);
+        finish();
+    }
+
     //onClick method that takes user to the My Exercise Screen
     public void myExerciseClicked(View view){
         Intent firstList = new Intent(this, firstList.class);

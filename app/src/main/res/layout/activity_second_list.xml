@@ -32,7 +32,8 @@
                 android:layout_weight="0.5"
                 android:textColor="#eeff00"
                 android:background="@drawable/yellowborder"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:onClick="extraClicked" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -43,7 +44,8 @@
                 android:layout_weight="0.25"
                 android:background="@drawable/yellowborder"
                 android:textColor="#eeff00"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:onClick="myProfileClicked" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -65,7 +67,8 @@
                 android:layout_weight="0.25"
                 android:textColor="#eeff00"
                 android:background="@drawable/yellowborder"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:onClick="trueStrengthClicked" />
         </TableRow>
 
     </TableLayout>

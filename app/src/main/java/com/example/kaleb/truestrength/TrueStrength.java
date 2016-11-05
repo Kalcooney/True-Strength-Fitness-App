@@ -32,7 +32,16 @@ public class TrueStrength extends AppCompatActivity {
 
     //onClick method that takes user to the My Exercise Screen
     public void myExerciseClicked(View view){
+        Intent myExercise = new Intent(this, firstList.class);
+        startActivity(myExercise);
+        finish();
+    }
 
+    //onClick that takes user to the Options screen
+    public void extraClicked(View view){
+        Intent extra = new Intent(this, otherOptionsMenu.class);
+        startActivity(extra);
+        finish();
     }
 
 }

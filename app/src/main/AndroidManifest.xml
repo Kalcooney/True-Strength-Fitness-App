@@ -28,7 +28,8 @@
         <activity android:name=".myExerciseActivity" />
         <activity android:name=".repsets" />
         <activity android:name=".secondList" />
-        <activity android:name=".timer"></activity>
+        <activity android:name=".timer" />
+        <activity android:name=".otherOptionsMenu"></activity>
     </application>
 
 </manifest>

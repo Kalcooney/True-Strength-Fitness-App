@@ -84,4 +84,25 @@ public class secondList extends AppCompatActivity {
     public void goBack(View view){
         finish();
     }
+
+    //onClick that takes user to the options screen
+    public void extraClicked(View view){
+        Intent extra = new Intent(this, otherOptionsMenu.class);
+        startActivity(extra);
+        finish();
+    }
+
+    //onClick that takes user to the My Profile screen
+    public void myProfileClicked(View view){
+        Intent myProfile = new Intent(this, ProfileScreen.class);
+        startActivity(myProfile);
+        finish();
+    }
+
+    //onClick that takes user to the True Strength screen
+    public void trueStrengthClicked(View view){
+        Intent trueStrength = new Intent(this, TrueStrength.class);
+        startActivity(trueStrength);
+        finish();
+    }
 }

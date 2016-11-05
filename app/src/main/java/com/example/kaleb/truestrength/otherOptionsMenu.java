@@ -7,54 +7,67 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 
-public class HelpActivity extends AppCompatActivity {
+public class otherOptionsMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Make the activity full screen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //Hides the action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        setContentView(R.layout.activity_help);
-
-        //reference the webview
-        WebView browser = (WebView) findViewById(R.id.webView);
-        WebSettings settings = browser.getSettings();
-        settings.setJavaScriptEnabled(true); //make sure javascript is enabled
-        browser.loadUrl("file:///android_asset/help.html"); //load the help screen as a html file stored within app.
+        setContentView(R.layout.activity_other_options_menu);
     }
 
-    //onClick that takes user to the Options screen
-    public void extraClicked(View view){
-        Intent extra = new Intent(this, otherOptionsMenu.class);
-        startActivity(extra);
-        finish();
-    }
-
-    //onClick that takes user to the My Profile tab
+    //onClick that takes user to the My Profile screen
     public void myProfileClicked(View view){
         Intent myProfile = new Intent(this, ProfileScreen.class);
         startActivity(myProfile);
         finish();
     }
 
-    //onClick that takes user to the My Exercise Tab
+    //onClick that takes user to the My Exercise screen
     public void myExerciseClicked(View view){
         Intent myExercise = new Intent(this, firstList.class);
         startActivity(myExercise);
         finish();
     }
 
-    //onClick that takes user to the True Strength Tab
+    //onClick that takes user to the True Strength screen
     public void trueStrengthClicked(View view){
         Intent trueStrength = new Intent(this, TrueStrength.class);
         startActivity(trueStrength);
         finish();
+    }
+
+
+    //onClick to take user to preferences screen
+    public void preferencesClicked(View view){
+        /* Intent preferences = new Intent(this, preferences.class);
+        startActivity(preferences);
+        finish(); */
+    }
+
+    //onClick to take user to the help screen
+    public void helpClicked(View view){
+        Intent help = new Intent(this, HelpActivity.class);
+        startActivity(help);
+        finish();
+    }
+
+    //onClick to take user to the about screen
+    public void aboutClicked(View view){
+        Intent about = new Intent(this, AboutActivity.class);
+        startActivity(about);
+        finish();
+    }
+
+    //onClick to take user to the Contact True Strength screen
+    public void contactClicked(View view){
+        /* Intent contact = new Intent(this, contact.class);
+        startActivity(contact);
+        finish(); */
     }
 }

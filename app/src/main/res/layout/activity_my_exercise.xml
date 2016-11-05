@@ -32,7 +32,8 @@
                 android:layout_weight="0.5"
                 android:textColor="#eeff00"
                 android:background="@drawable/yellowborder"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:onClick="extraClicked" />
 
             <Button
                 android:layout_width="wrap_content"
