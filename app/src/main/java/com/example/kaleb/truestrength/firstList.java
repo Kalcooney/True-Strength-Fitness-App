@@ -1,6 +1,8 @@
 package com.example.kaleb.truestrength;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class firstList extends AppCompatActivity {
 
@@ -22,6 +27,10 @@ public class firstList extends AppCompatActivity {
         setContentView(R.layout.activity_first_list);
         dbHandler = new MyDBHandler(this, null, null, 1);
         populateListView();
+        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor userInfoEditor = userInfo.edit();
+        TextView titleText = (TextView) findViewById(R.id.titleText);
+        titleText.setText("Welcome " + userInfo.getString("username", ""));
     }
 
     private void populateListView() {

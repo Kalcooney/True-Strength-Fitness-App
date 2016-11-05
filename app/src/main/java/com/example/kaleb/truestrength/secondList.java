@@ -1,6 +1,8 @@
 package com.example.kaleb.truestrength;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -26,13 +28,18 @@ public class secondList extends AppCompatActivity {
         setContentView(R.layout.activity_second_list);
         dbHandler = new MyDBHandler (this, null, null, 1);
 
+        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor userInfoEditor = userInfo.edit();
+
         ListView myList = (ListView) findViewById(R.id.dayList);
         TextView dayresult = (TextView) findViewById(R.id.dayText);
         TextView weekresult = (TextView) findViewById(R.id.weekText);
+        TextView titleText = (TextView) findViewById(R.id.titleText);
 
         id = getIntent().getExtras().getString("id");
         day = Integer.parseInt(id);
 
+        titleText.setText("Welcome " + userInfo.getString("username", ""));
         weekresult.setText(dbHandler.getWeek(day));
         populateListView();
 
