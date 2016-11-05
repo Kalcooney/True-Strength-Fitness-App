@@ -34,7 +34,7 @@ public class myExerciseActivity extends AppCompatActivity {
         //Hides the action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_my_exercise);
     }
 
     public void startTimer(){

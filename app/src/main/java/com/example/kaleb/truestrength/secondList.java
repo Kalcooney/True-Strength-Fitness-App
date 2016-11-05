@@ -81,7 +81,7 @@ public class secondList extends AppCompatActivity {
 
     }
 
-    public void goBack(){
+    public void goBack(View view){
         finish();
     }
 }
