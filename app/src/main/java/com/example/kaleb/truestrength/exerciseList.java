@@ -46,8 +46,8 @@ public class exerciseList extends AppCompatActivity {
         TextView weekresult = (TextView) findViewById(R.id.weekTextex);
         TextView titleText = (TextView) findViewById(R.id.titleText);
 
-        id = getIntent().getExtras().getString("id");
-        day = Integer.parseInt(id);
+        //id = getIntent().getExtras().getString("id");
+        //day = Integer.parseInt(id);
 
         //shared preferences to get the current week and day
         SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);

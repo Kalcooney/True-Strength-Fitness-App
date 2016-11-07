@@ -48,6 +48,7 @@ public class repsets extends AppCompatActivity {
         actionBar.hide();
         setContentView(R.layout.activity_repsets);
         TextView exName = (TextView) findViewById(R.id.exnameText);
+        TextView nextEx = (TextView) findViewById(R.id.nextexText);
 
         SharedPreferences listItem = getSharedPreferences("ID", Context.MODE_PRIVATE);
         SharedPreferences.Editor IDEditor = listItem.edit();
@@ -59,6 +60,7 @@ public class repsets extends AppCompatActivity {
         //exerciseName = dbHandler.getExName(daydb, weekdb);
         //exName.setText(exerciseName);
         exName.setText(dbHandler.getExerciseNumber(pk).toString() + " " + dbHandler.getExerciseName(pk).toString()); //this shows the exercise name as the day name.  I can't work out how to use this to get the exercisename!
+        nextEx.setText("Next: " + dbHandler.getExerciseName(pk + 1));
 
         weight = (Spinner) findViewById(R.id.weightSpinner);
         reps = (Spinner) findViewById(R.id.repsSpinner);
