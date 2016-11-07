@@ -8,11 +8,14 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.CountDownTimer;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -28,6 +31,7 @@ public class repsets extends AppCompatActivity {
     private SQLiteDatabase db;
     String Name, daydb, weekdb, exerciseName;
     int day;
+    int pk;
     TextView restText;
     private CountDownTimer  restCountDownTimer;
     private long startTime = 30 * 1000;
@@ -36,12 +40,18 @@ public class repsets extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Make the activity full screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //Hides the action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_repsets);
         TextView exName = (TextView) findViewById(R.id.exnameText);
 
         SharedPreferences listItem = getSharedPreferences("ID", Context.MODE_PRIVATE);
         SharedPreferences.Editor IDEditor = listItem.edit();
-        int pk = listItem.getInt("Primary Key", 0);
+        pk = listItem.getInt("Primary Key", 0);
         dbHandler = new MyDBHandler(this, null, null, 1);
 
         //daydb = getIntent().getExtras().getString("dayname");
@@ -93,6 +103,7 @@ public class repsets extends AppCompatActivity {
         restCountDownTimer.start();
 
 
+
         alertDialogBuilder
                 .setCancelable(false)
 
@@ -131,6 +142,30 @@ public class repsets extends AppCompatActivity {
     public void backClicked(View view){
         Intent exerciseList = new Intent(this, exerciseList.class);
         startActivity(exerciseList);
+        finish();
+    }
+
+    public void extraClicked(View view){
+        Intent extra = new Intent(this, otherOptionsMenu.class);
+        startActivity(extra);
+        finish();
+    }
+
+    public void myExerciseClicked(View view){
+        Intent myExercise = new Intent(this, firstList.class);
+        startActivity(myExercise);
+        finish();
+    }
+
+    public void myProfileClicked(View view){
+        Intent myProfile = new Intent(this, ProfileScreen.class);
+        startActivity(myProfile);
+        finish();
+    }
+
+    public void trueStrengthClicked(View view){
+        Intent trueStrength = new Intent(this, TrueStrength.class);
+        startActivity(trueStrength);
         finish();
     }
 }

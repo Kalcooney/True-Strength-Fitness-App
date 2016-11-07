@@ -5,9 +5,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static android.R.attr.id;
+
 public class MyDBHandler extends SQLiteOpenHelper{
 
-    public static final int DATABASE_VERSION = 7; //current version of the database
+    public static final int DATABASE_VERSION = 9; //current version of the database
     public static final String DATABASE_NAME = "exercises.db"; //the name of the database
 
     //table and column names for the Exercises Table
@@ -68,6 +70,33 @@ public class MyDBHandler extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ", " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 1\", \"Ex:6b\", \"T-Bar Row\", \"Conditioning\", 30000);");
         sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 1\", \"Ex:7a\", \"Cook-Willis Press\", \"Conditioning\");");
         sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ", " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 1\", \"Ex:7b\", \"Pull ups\", \"Conditioning\", 30000);");
+        //week one, day two
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY  + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:1a\", \"Foam Roll\", \"Warmup\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:1b\", \"Mobility/Activation Drills\", \"Warmup\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:1c\", \"Rotator Cuff Work\", \"Warmup\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:2\", \"Standing Overhead Press\", \"Shoulders Arms Workout\", 120000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ", " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:3\", \"DB Shoulder Press\", \"Shoulders/Arms Workout\", 120000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ", " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:4a\", \"Lateral Raise\", \"Shoulders/Arms Workout\", 30000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:5a\", \"Rear Delt Fly\", \"Shoulders/Arms Workout\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:5b\", \"Face Pulls\", \"Shoulders/Arms Workout\", 30000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:6a\", \"BB Curl\", \"Shoulders/Arms Workout\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:6b\", \"Dips\", \"Shoulders/Arms Workout\", 60000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:7a\", \"DB Curl\", \"Shoulders/Arms Workout\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:7b\", \"Rope Pushdown\", \"Shoulders/Arms Workout\", 60000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:8a\", \"Hammer Curl\", \"Shoulders/Arms Workout\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 2\", \"Ex:8b\", \"Triceps Pushdown\", \"Shoulders/Arms Workout\", 45000);");
+        //week one, day three
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY  + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:1a\", \"Foam Roll\", \"Warmup\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:1b\", \"Mobility/Activation Drills\", \"Warmup\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:2\", \"Squats\", \"Legs Workout\", 120000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:3\", \"Sumo Deadlift\", \"Legs Workout\", 120000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:4\", \"Leg Press\", \"Legs Workout\", 600000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:5a\", \"DB SL Deadlift\", \"Legs Workout\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:5b\", \"Walking Lunges\", \"Legs Workout\", 60000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:6a\", \"Hamstring Curl\", \"Legs Workout\");");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:6b\", \"Leg Extension\", \"Legs Workout\", 30000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + " , " + COLUMN_REST_TIME + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:7\", \"Standing Calf Raise\", \"Legs Workout\", 30000);");
+        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_EXERCISES + "(" + COLUMN_WEEK + ", " + COLUMN_DAY + ", " + COLUMN_EXERCISE_NUMBER + ", " + COLUMN_EXERCISE_NAME + ", " + COLUMN_EXERCISE_TYPE + ") VALUES (\"Week 1\", \"Day 3\", \"Ex:8\", \"Seated Calf Raise\", \"Legs Workout\");");
     }
 
     @Override
@@ -135,9 +164,9 @@ public class MyDBHandler extends SQLiteOpenHelper{
         return dbString;
     }
 
-    public Cursor getAllRows(){
+    public Cursor getAllRows(String week, String day){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("select rowid _id, * from Exercises ", null);
+        Cursor c = db.rawQuery("select rowid _id, * from Exercises WHERE Week = '" + week + "' AND Day = '" + day + "'", null);
         if (c != null) {
             c.moveToFirst();
         }
@@ -161,6 +190,8 @@ public class MyDBHandler extends SQLiteOpenHelper{
         }
         return c;
     }
+
+
 
   /*  public Cursor getAllWeeks(int id){
         SQLiteDatabase db = getWritableDatabase();

@@ -51,8 +51,7 @@ public class secondList extends AppCompatActivity {
         id = getIntent().getExtras().getString("id");
         day = Integer.parseInt(id);
 
-        //titleText.setText("Welcome " + userInfo.getString("username", ""));
-        titleText.setText("Welcome " + Integer.toString(listItem.getInt("Primary Key", 0)));
+        titleText.setText("Welcome " + userInfo.getString("username", ""));
         weekresult.setText(dbHandler.getWeek(day));
         populateListView();
 
@@ -61,7 +60,7 @@ public class secondList extends AppCompatActivity {
 
     private void populateListView() {
 // populate EditText fields with data from Cursor
-        Cursor cursor = dbHandler.getAllRows();
+        Cursor cursor = dbHandler.getAllDay();
         //next 2 rows take data from the database and places them in the list view
         final String fromFiledNames[] = new String[]{MyDBHandler.COLUMN_DAY}; //this array will be used in list view
         int[] toViewIDs = new int[]{R.id.dayText};
@@ -78,12 +77,14 @@ public class secondList extends AppCompatActivity {
                                               myintent.putExtra("position", String.valueOf(position));
                                               myintent.putExtra("id", String.valueOf(id));
 
+                                              //shared preferences to get the pk
                                               SharedPreferences listItem = getSharedPreferences("ID", Context.MODE_PRIVATE);
                                               SharedPreferences.Editor IDEditor = listItem.edit();
                                               SharedPreferences getWeek = getSharedPreferences("Week", Context.MODE_PRIVATE);
                                               SharedPreferences.Editor getWeekEditor = getWeek.edit();
                                               int positionID = 1;
                                               int posID = (int) (long) id;
+
                                               int currentWeek = getWeek.getInt("Week", 0);
                                               if(currentWeek == 1 && posID == 1){
                                                   positionID = 1;
@@ -108,6 +109,25 @@ public class secondList extends AppCompatActivity {
                                               }
                                               IDEditor.putInt("Primary Key", positionID);
                                               IDEditor.commit();
+
+                                              //shared preferences to get the day for querying
+                                              SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+                                              SharedPreferences.Editor weekDayEditor = weekDay.edit();
+
+                                              int pos = position + 1;
+                                              if(pos == 1){
+                                                  weekDayEditor.putString("Day", "Day 1");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(pos == 2){
+                                                  weekDayEditor.putString("Day", "Day 2");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(pos == 3){
+                                                  weekDayEditor.putString("Day", "Day 3");
+                                                  weekDayEditor.commit();
+                                              }
+
 
                                               // myintent.putExtra("date", String.valueOf(id));
                                               startActivity(myintent);

@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -43,7 +46,7 @@ public class firstList extends AppCompatActivity {
     }
 
     private void populateListView() {
-        Cursor cursor = dbHandler.getAllRows();
+        Cursor cursor = dbHandler.getAllWeek();
         final String fromFiledNames[] = new String[]{MyDBHandler.COLUMN_WEEK}; //this array will be used in list view
         int[] toViewIDs = new int[]{R.id.weekText};
         SimpleCursorAdapter myCursorAdapter;
@@ -58,17 +61,33 @@ public class firstList extends AppCompatActivity {
                                               Intent myintent = new Intent(view.getContext(), secondList.class);
                                               myintent.putExtra("position", String.valueOf(position));
                                               myintent.putExtra("id", String.valueOf(id));
+                                              //to get the current week as an int (for pk)
                                               SharedPreferences getWeek = getSharedPreferences("Week", Context.MODE_PRIVATE);
                                               SharedPreferences.Editor getWeekEditor = getWeek.edit();
+                                              //to get the current week as a string (for querying)
+                                              SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+                                              SharedPreferences.Editor weekDayEditor = weekDay.edit();
                                               int positionID = (int) (long) id;
                                               getWeekEditor.putInt("Week", positionID);
                                               getWeekEditor.commit();
+                                              //if statements to get week
+                                              if(positionID == 1){
+                                                  weekDayEditor.putString("Week", "Week 1");
+                                                  weekDayEditor.putString("Day", "");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(positionID == 2){
+                                                  weekDayEditor.putString("Week", "Week 2");
+                                                  weekDayEditor.putString("Day", "");
+                                                  weekDayEditor.commit();
+                                              }
                                               // myintent.putExtra("date", String.valueOf(id));
                                               startActivity(myintent);
                                           }
                                       }
         );
     }
+
     public void goBack(View view){
         finish();
     }

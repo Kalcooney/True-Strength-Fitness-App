@@ -21,6 +21,8 @@ public class exerciseList extends AppCompatActivity {
     private SQLiteDatabase db;
     String id, result, fromFiledNames, daydb, weekdb;
     int day;
+    String currentWeek;
+    String currentDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class exerciseList extends AppCompatActivity {
         actionBar.hide();
         setContentView(R.layout.activity_exercise_list);
 
+        //shared preferences to display username
         SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor userInfoEditor = userInfo.edit();
 
@@ -45,18 +48,27 @@ public class exerciseList extends AppCompatActivity {
 
         id = getIntent().getExtras().getString("id");
         day = Integer.parseInt(id);
-        weekdb = dbHandler.getWeek(day);
-        daydb = dbHandler.getDay(day);
-        weekresult.setText(weekdb);
-        dayresult.setText(daydb);
+
+        //shared preferences to get the current week and day
+        SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+        SharedPreferences.Editor weekDayEditor = weekDay.edit();
+
+
+        weekresult.setText( weekDay.getString("Week", ""));
+        dayresult.setText(weekDay.getString("Day", ""));
         titleText.setText("Welcome " + userInfo.getString("username", ""));
         //dayresult.setText(dbHandler.getDay(day));
         populateListView();
     }
 
     private void populateListView() {
+        //shared preferences to get the current week and day
+        SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+        SharedPreferences.Editor weekDayEditor = weekDay.edit();
+        currentWeek = weekDay.getString("Week", "");
+        currentDay = weekDay.getString("Day", "");
         // populate EditText fields with data from Cursor
-        Cursor cursor = dbHandler.getAllRows();
+        Cursor cursor = dbHandler.getAllRows(currentWeek, currentDay);
         //next 2 rows take data from the database and places them in the list view
         String fromFiledNames[] = new String[]{MyDBHandler.COLUMN_EXERCISE_NUMBER, MyDBHandler.COLUMN_EXERCISE_NAME}; //this array will be used in list view
         int[] toViewIDs = new int[]{R.id.exerciseNumber, R.id.exerciseText};
