@@ -1,39 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/whiteborder"
+    android:padding="20dp">
 
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/exerciseTable"
-        android:layout_alignParentStart="false"
-        android:id="@+id/timerFrame"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        android:layout_above="@+id/nextexText"
-        android:background="#000000">
+    <TextView
+        android:text="30 SECOND REST!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_margin="5dp"
+        android:gravity="top|center_horizontal"
+        android:padding="10dp" />
 
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
+    <TextView
+        android:text="00:30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/restCountdown"
+        android:textSize="30sp"
+        android:textColor="#eeff00"
+        android:layout_gravity="bottom|center_horizontal|center"
+        android:layout_marginBottom="20dp"
+        android:padding="40dp" />
 
-            <Chronometer
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/timer"
-                android:layout_gravity="center"
-                android:textColor="#eeff00"
-                android:background="@drawable/whiteborder"
-                android:text="00:00"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:autoText="false"
-                android:textIsSelectable="false"
-                android:textSize="35dp"
-                android:gravity="center_horizontal"
-                android:padding="20dp" />
-        </FrameLayout>
-
-    </FrameLayout>
 </LinearLayout>

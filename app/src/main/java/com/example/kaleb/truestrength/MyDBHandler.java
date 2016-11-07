@@ -137,21 +137,30 @@ public class MyDBHandler extends SQLiteOpenHelper{
 
     public Cursor getAllRows(){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("select rowid _id,* from Exercises ", null);
+        Cursor c = db.rawQuery("select rowid _id, * from Exercises ", null);
         if (c != null) {
             c.moveToFirst();
         }
         return c;
     }
 
-    /*public Cursor getAllWeek(){
+    public Cursor getAllWeek(){
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("select DISTINCT Week from Exercises ", null);
+        Cursor c = db.rawQuery("select DISTINCT Week, 1 _id  from Exercises ", null);
         if (c != null) {
             c.moveToFirst();
         }
         return c;
-    } */
+    }
+
+    public Cursor getAllDay(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery("select DISTINCT Day, 1 _id  from Exercises ", null);
+        if (c != null) {
+            c.moveToFirst();
+        }
+        return c;
+    }
 
   /*  public Cursor getAllWeeks(int id){
         SQLiteDatabase db = getWritableDatabase();
@@ -194,10 +203,8 @@ public class MyDBHandler extends SQLiteOpenHelper{
         sqLiteDatabase.close();
         return day;
     }
-
-
     //method to get the Exercise Name
-    public String getExerciseName(long id){
+    public String getExerciseName(int id){
         String exName = "";
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String query = "SELECT " + COLUMN_EXERCISE_NAME + " FROM " + TABLE_EXERCISES + " WHERE " + COLUMN_EXERCISE_ID + " = " + id;
@@ -213,8 +220,25 @@ public class MyDBHandler extends SQLiteOpenHelper{
         return exName;
     }
 
-    ///method to get the Exercise Number
-    public String getExerciseNumber(long id){
+    //method to get the Exercise Name
+    public String getExName(int id){
+        String exName = "";
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String query = "SELECT " + COLUMN_EXERCISE_NAME + " FROM " + TABLE_EXERCISES + " WHERE" + COLUMN_EXERCISE_ID + " = " + id;
+
+        Cursor c = sqLiteDatabase.rawQuery(query, null);
+        c.moveToFirst();
+
+        if(c.getString(c.getColumnIndex("exerciseName")) != null){
+            exName += c.getString(c.getColumnIndex("exerciseName"));
+        }
+
+        sqLiteDatabase.close();
+        return exName;
+    }
+
+    //method to get the Exercise Number
+    public String getExerciseNumber(int id){
         String exNum = "";
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String query = "SELECT " + COLUMN_EXERCISE_NUMBER + " FROM " + TABLE_EXERCISES + " WHERE " + COLUMN_EXERCISE_ID + " = " + id;
@@ -230,23 +254,15 @@ public class MyDBHandler extends SQLiteOpenHelper{
         return exNum;
     }
 
-    //method to get the rest time for the exercise and convert to long data type ready for timer
     public long getRestTime(long id){
-        String restTime = "";
-        long timerTime = 0;
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String query = "SELECT " + COLUMN_REST_TIME + " FROM " + TABLE_EXERCISES + " WHERE " + COLUMN_EXERCISE_ID + " = " + id;
 
         Cursor c = sqLiteDatabase.rawQuery(query, null);
         c.moveToFirst();
 
-        if(c.getString(c.getColumnIndex("restTime")) != null){
-            restTime += c.getString(c.getColumnIndex("restTime"));
-        }
-
-        timerTime = Long.parseLong(restTime);
-
+        long restTime = c.getLong(6);
         sqLiteDatabase.close();
-        return timerTime;
+        return restTime;
     }
 }

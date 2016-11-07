@@ -19,7 +19,11 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/table">
+            android:id="@+id/table"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
             <TableLayout
                 android:layout_width="fill_parent"
@@ -170,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/helpTitle"
-                    android:text="View Help"
+                    android:text="Help"
                     android:textColor="@color/white"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
@@ -200,7 +204,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="0dp"
-                    android:text="Help"
+                    android:text="View Help"
                     android:id="@+id/helpbutton"
                     android:textColor="#ffffff"
                     android:onClick="helpClicked"

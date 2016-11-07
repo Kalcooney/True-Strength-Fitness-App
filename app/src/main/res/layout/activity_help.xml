@@ -26,25 +26,24 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="Extra"
                     android:id="@+id/extraButton"
                     android:layout_column="0"
                     android:layout_weight="0.5"
-                    android:textColor="#000000"
                     android:background="#eeff00"
                     android:layout_gravity="center"
-                    android:onClick="extraClicked" />
+                    android:onClick="extraClicked"
+                    android:src="@mipmap/menu" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My   Profile"
+                    android:text="My\nProfile"
                     android:id="@+id/myprofileButton"
                     android:layout_column="1"
                     android:layout_weight="0.25"
@@ -56,7 +55,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Exercise"
+                    android:text="My\nExercise"
                     android:id="@+id/myexerciseButton"
                     android:layout_column="2"
                     android:layout_weight="0.25"
@@ -68,7 +67,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="True Strength"
+                    android:text="True\nStrength"
                     android:id="@+id/truestrengthButton"
                     android:layout_column="3"
                     android:layout_weight="0.25"

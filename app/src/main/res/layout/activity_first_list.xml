@@ -68,7 +68,7 @@
                 android:textColor="#eeff00"
                 android:background="@drawable/yellowborder"
                 android:layout_gravity="center"
-                android:onClick="trueStrengthclicked" />
+                android:onClick="trueStrengthClicked" />
         </TableRow>
 
     </TableLayout>

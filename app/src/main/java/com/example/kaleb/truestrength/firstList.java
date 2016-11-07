@@ -58,6 +58,11 @@ public class firstList extends AppCompatActivity {
                                               Intent myintent = new Intent(view.getContext(), secondList.class);
                                               myintent.putExtra("position", String.valueOf(position));
                                               myintent.putExtra("id", String.valueOf(id));
+                                              SharedPreferences getWeek = getSharedPreferences("Week", Context.MODE_PRIVATE);
+                                              SharedPreferences.Editor getWeekEditor = getWeek.edit();
+                                              int positionID = (int) (long) id;
+                                              getWeekEditor.putInt("Week", positionID);
+                                              getWeekEditor.commit();
                                               // myintent.putExtra("date", String.valueOf(id));
                                               startActivity(myintent);
                                           }
