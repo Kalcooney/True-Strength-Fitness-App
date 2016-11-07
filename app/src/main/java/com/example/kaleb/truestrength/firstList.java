@@ -67,17 +67,23 @@ public class firstList extends AppCompatActivity {
                                               //to get the current week as a string (for querying)
                                               SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
                                               SharedPreferences.Editor weekDayEditor = weekDay.edit();
-                                              int positionID = (int) (long) id;
-                                              getWeekEditor.putInt("Week", positionID);
+                                              //int positionID = (int) (long) id;
+                                              int pos = position + 1;
+                                              getWeekEditor.putInt("Week", pos);
                                               getWeekEditor.commit();
                                               //if statements to get week
-                                              if(positionID == 1){
+                                              if(pos == 1){
                                                   weekDayEditor.putString("Week", "Week 1");
                                                   weekDayEditor.putString("Day", "");
                                                   weekDayEditor.commit();
                                               }
-                                              if(positionID == 2){
+                                              if(pos == 2){
                                                   weekDayEditor.putString("Week", "Week 2");
+                                                  weekDayEditor.putString("Day", "");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(pos == 3){
+                                                  weekDayEditor.putString("Week", "Week 3");
                                                   weekDayEditor.putString("Day", "");
                                                   weekDayEditor.commit();
                                               }

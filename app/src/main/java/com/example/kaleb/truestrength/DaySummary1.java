@@ -1,0 +1,171 @@
+package com.example.kaleb.truestrength;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
+
+public class DaySummary1 extends AppCompatActivity {
+
+    MyDBHandler dbHandler;
+    private SQLiteDatabase db;
+    String id, result, fromFiledNames, daydb, weekdb;
+    int day;
+    String currentWeek;
+    String currentDay;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //Make the activity full screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //Hides the action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+        setContentView(R.layout.activity_day_summary1);
+
+        //shared preferences to display username
+        SharedPreferences userInfo = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor userInfoEditor = userInfo.edit();
+
+        dbHandler = new MyDBHandler(this, null, null, 1);
+
+        ListView myList = (ListView) findViewById(R.id.exerciseList);
+        TextView dayresult = (TextView) findViewById(R.id.dayText);
+        TextView weekresult = (TextView) findViewById(R.id.weekTextex);
+        TextView titleText = (TextView) findViewById(R.id.titleText);
+
+        //id = getIntent().getExtras().getString("id");
+        //day = Integer.parseInt(id);
+
+        //shared preferences to get the current week and day
+        SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+        SharedPreferences.Editor weekDayEditor = weekDay.edit();
+
+
+        weekresult.setText( weekDay.getString("Week", ""));
+        dayresult.setText(weekDay.getString("Day", ""));
+        titleText.setText("Summary");
+        //dayresult.setText(dbHandler.getDay(day));
+        populateListView();
+    }
+
+    private void populateListView() {
+        //shared preferences to get the current week and day
+        final SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+        SharedPreferences.Editor weekDayEditor = weekDay.edit();
+        currentWeek = weekDay.getString("Week", "");
+        currentDay = weekDay.getString("Day", "");
+        // populate EditText fields with data from Cursor
+        Cursor cursor = dbHandler.getAllRows(currentWeek, currentDay);
+        //next 2 rows take data from the database and places them in the list view
+        String fromFiledNames[] = new String[]{MyDBHandler.COLUMN_EXERCISE_NUMBER, MyDBHandler.COLUMN_EXERCISE_NAME}; //this array will be used in list view
+        int[] toViewIDs = new int[]{R.id.exerciseNumber, R.id.exerciseText};
+        SimpleCursorAdapter myCursorAdapter;
+        //next line uses the customlayout that we set up inputs the data
+        myCursorAdapter = new SimpleCursorAdapter(getBaseContext(), R.layout.customlistexercise, cursor, fromFiledNames, toViewIDs, 0);
+        ListView myList = (ListView) findViewById(R.id.exerciseList);
+        myList.setAdapter(myCursorAdapter);
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() { //listens to the click
+                                          @Override
+                                          public void onItemClick(AdapterView<?> myList, View view, int position, long id) {
+                                              Cursor cursor = (Cursor) myList.getItemAtPosition(position);
+                                              Intent myintent = new Intent(view.getContext(), exerciseList.class);
+                                              myintent.putExtra("position", String.valueOf(position));
+                                              myintent.putExtra("id", String.valueOf(id));
+
+                                              SharedPreferences exData = getSharedPreferences("exData", Context.MODE_PRIVATE);
+                                              SharedPreferences.Editor editor = exData.edit();
+                                              final SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+                                              SharedPreferences.Editor weekDayEditor = weekDay.edit();
+                                              int pos = (int) (long) id;
+                                              int positionID;
+                                              if(weekDay.getString("Week", "") == "Week 1"){
+                                                  if(weekDay.getString("Day", "") == "Day 1"){
+                                                      if (pos == 1) {
+                                                          positionID = 1;
+                                                          editor.putInt("exDataKey", positionID);
+                                                          editor.commit();
+                                                      }
+                                                  }
+                                              }
+                                              else if(weekDay.getString("Week", "") == "Week 1"){
+                                                  if(weekDay.getString("Day", "") == "Day 1"){
+                                                      if (pos == 2) {
+                                                          positionID = 2;
+                                                          editor.putInt("exDataKey", positionID);
+                                                          editor.commit();
+                                                      }
+                                                  }
+                                              }
+                                              else if(weekDay.getString("Week", "") == "Week 1") {
+                                                  if (weekDay.getString("Day", "") == "Day 1") {
+                                                      if (pos == 3) {
+                                                          positionID = 3;
+                                                          editor.putInt("exDataKey", positionID);
+                                                          editor.commit();
+                                                      }
+                                                  }
+                                              }
+
+                                              Intent daySummary2 = new Intent(DaySummary1.this, DaySummary2.class);
+                                              startActivity(daySummary2);
+                                              finish();
+
+                                          }
+                                      }
+        );
+    }
+
+    public void goBack(View view){
+        Intent daysummary1 = new Intent(this, DaySummary1.class);
+        startActivity(daysummary1);
+        finish();
+    }
+
+    public void startClicked(View view){
+        Intent repsets = new Intent(this, repsets.class);
+        startActivity(repsets);
+        finish();
+    }
+
+    //onClick that takes user to the options screen
+    public void extraClicked(View view){
+        Intent extra = new Intent(this, otherOptionsMenu.class);
+        startActivity(extra);
+        finish();
+    }
+
+    //onClick that takes user to the My Profile screen
+    public void myProfileClicked(View view){
+        Intent myProfile = new Intent(this, ProfileScreen.class);
+        startActivity(myProfile);
+        finish();
+    }
+
+    //onClick that takes user to the True Strength screen
+    public void trueStrengthClicked(View view){
+        Intent trueStrength = new Intent(this, TrueStrength.class);
+        startActivity(trueStrength);
+        finish();
+    }
+
+    //onClick that takes user to the My Exercise screen
+    public void myExerciseClicked(View view){
+        Intent myExercise = new Intent(this, firstList.class);
+        startActivity(myExercise);
+        finish();
+    }
+}

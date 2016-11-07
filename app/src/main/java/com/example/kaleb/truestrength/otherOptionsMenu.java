@@ -66,8 +66,8 @@ public class otherOptionsMenu extends AppCompatActivity {
 
     //onClick to take user to the Contact True Strength screen
     public void contactClicked(View view){
-        /* Intent contact = new Intent(this, contact.class);
+        Intent contact = new Intent(this, Contact.class);
         startActivity(contact);
-        finish(); */
+        finish();
     }
 }

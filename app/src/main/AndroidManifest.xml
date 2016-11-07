@@ -29,7 +29,10 @@
         <activity android:name=".repsets" />
         <activity android:name=".secondList" />
         <activity android:name=".timer" />
-        <activity android:name=".otherOptionsMenu"></activity>
+        <activity android:name=".otherOptionsMenu" />
+        <activity android:name=".DaySummary1" />
+        <activity android:name=".Contact" />
+        <activity android:name=".DaySummary2"></activity>
     </application>
 
 </manifest>

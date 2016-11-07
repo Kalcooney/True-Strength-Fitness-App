@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class repsets extends AppCompatActivity {
 
@@ -33,8 +35,9 @@ public class repsets extends AppCompatActivity {
     int day;
     int pk;
     TextView restText;
+    TextView timerTitle;
     private CountDownTimer  restCountDownTimer;
-    private long startTime = 30 * 1000;
+    //private long startTime = 30 * 1000;
     private final long interval = 1 * 1000;
 
     @Override
@@ -49,6 +52,7 @@ public class repsets extends AppCompatActivity {
         setContentView(R.layout.activity_repsets);
         TextView exName = (TextView) findViewById(R.id.exnameText);
         TextView nextEx = (TextView) findViewById(R.id.nextexText);
+        TextView titleText = (TextView) findViewById(R.id.titleText);
 
         SharedPreferences listItem = getSharedPreferences("ID", Context.MODE_PRIVATE);
         SharedPreferences.Editor IDEditor = listItem.edit();
@@ -61,6 +65,7 @@ public class repsets extends AppCompatActivity {
         //exName.setText(exerciseName);
         exName.setText(dbHandler.getExerciseNumber(pk).toString() + " " + dbHandler.getExerciseName(pk).toString()); //this shows the exercise name as the day name.  I can't work out how to use this to get the exercisename!
         nextEx.setText("Next: " + dbHandler.getExerciseName(pk + 1));
+        titleText.setText(dbHandler.getExerciseType(pk));
 
         weight = (Spinner) findViewById(R.id.weightSpinner);
         reps = (Spinner) findViewById(R.id.repsSpinner);
@@ -99,7 +104,10 @@ public class repsets extends AppCompatActivity {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(promptsView);
+        long startTime = dbHandler.getRestTime(pk);
+        timerTitle = (TextView) promptsView.findViewById(R.id.timerTitle);
         restText = (TextView) promptsView.findViewById(R.id.restCountdown);
+        timerTitle.setText(String.valueOf(startTime / 1000) + " " + "SECONDS REST!");
         restText.setText( "00:" + String.valueOf(startTime / 1000) );
         restCountDownTimer = new RestMyCountDownTimer(startTime, interval);
         restCountDownTimer.start();
@@ -113,6 +121,116 @@ public class repsets extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int id) {
                         // alertDialogBuilder.dismiss();
+                        SharedPreferences listItem = getSharedPreferences("ID", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor IDEditor = listItem.edit();
+                        int currentKey = listItem.getInt("Primary Key", 0);
+
+                        User_Data userData = new User_Data(repsResult, weightResult, currentKey);
+                        dbHandler.addUserItem(userData);
+                        //end of day cheeks (week1)
+                        switch(currentKey){
+                            //if end of Day 1
+                            case(13):
+                                Intent summary = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary);
+                                finish();
+                                break;
+                            case(27):
+                                Intent summary2 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary2);
+                                finish();
+                                break;
+                            case(38):
+                                Intent summary3 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary3);
+                                finish();
+                                break;
+                            case(51):
+                                Intent summary4 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary4);
+                                finish();
+                                break;
+                            case(66):
+                                Intent summary5 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary5);
+                                finish();
+                                break;
+                            case(77):
+                                Intent summary6 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary6);
+                                finish();
+                                break;
+                            //end of day (week2)
+                            case(90):
+                                Intent summary7 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary7);
+                                finish();
+                                break;
+                            case(104):
+                                Intent summary8 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary8);
+                                finish();
+                                break;
+                            case(115):
+                                Intent summary9 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary9);
+                                finish();
+                                break;
+                            case(128):
+                                Intent summary10 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary10);
+                                finish();
+                                break;
+                            case(143):
+                                Intent summary11 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary11);
+                                finish();
+                                break;
+                            case(154):
+                                Intent summary12 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary12);
+                                finish();
+                                break;
+                            //end of day (week3)
+                            case(165):
+                                Intent summary13 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary13);
+                                finish();
+                                break;
+                            case(181):
+                                Intent summary14 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary14);
+                                finish();
+                                break;
+                            case(193):
+                                Intent summary15 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary15);
+                                finish();
+                                break;
+                            case(205):
+                                Intent summary16 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary16);
+                                finish();
+                                break;
+                            case(221):
+                                Intent summary17 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary17);
+                                finish();
+                                break;
+                            case(233):
+                                Intent summary18 = new Intent(repsets.this, DaySummary1.class);
+                                startActivity(summary18);
+                                finish();
+                                break;
+                            default:
+                                currentKey += 1;
+                                IDEditor.putInt("Primary Key", currentKey);
+                                IDEditor.commit();
+                                Intent repset = new Intent(repsets.this, repsets.class);
+                                finish();
+                                startActivity(repset);
+                                break;
+                        }
                     }
                 });
 

@@ -43,6 +43,10 @@ public class secondList extends AppCompatActivity {
         SharedPreferences listItem = getSharedPreferences("ID", Context.MODE_PRIVATE);
         SharedPreferences.Editor IDEditor = listItem.edit();
 
+        //shared preferences to get the current week and day
+        SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
+        SharedPreferences.Editor weekDayEditor = weekDay.edit();
+
         ListView myList = (ListView) findViewById(R.id.dayList);
         TextView dayresult = (TextView) findViewById(R.id.dayText);
         TextView weekresult = (TextView) findViewById(R.id.weekText);
@@ -52,7 +56,7 @@ public class secondList extends AppCompatActivity {
         day = Integer.parseInt(id);
 
         titleText.setText("Welcome " + userInfo.getString("username", ""));
-        weekresult.setText(dbHandler.getWeek(day));
+        weekresult.setText(weekDay.getString("Week", ""));
         populateListView();
 
 
@@ -83,38 +87,108 @@ public class secondList extends AppCompatActivity {
                                               SharedPreferences getWeek = getSharedPreferences("Week", Context.MODE_PRIVATE);
                                               SharedPreferences.Editor getWeekEditor = getWeek.edit();
                                               int positionID = 1;
-                                              int posID = (int) (long) id;
-
+                                              //int posID = (int) (long) id;
+                                              int pos = position + 1;
                                               int currentWeek = getWeek.getInt("Week", 0);
-                                              if(currentWeek == 1 && posID == 1){
+                                              //week 1 primary keys
+                                              if(currentWeek == 1 && pos == 1){
                                                   positionID = 1;
                                                   IDEditor.putInt("Primary Key", positionID);
                                                   IDEditor.commit();
-
                                               }
-                                              if(currentWeek == 1 && posID == 2){
+                                              if(currentWeek == 1 && pos == 2){
                                                   positionID = 14;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
                                               }
-                                              if(currentWeek == 1 && posID == 3) {
+                                              if(currentWeek == 1 && pos == 3) {
                                                   positionID = 28;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
                                               }
-                                              if(currentWeek == 1 && posID == 4){
+                                              if(currentWeek == 1 && pos == 4){
                                                   positionID = 39;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
                                               }
-                                              if(currentWeek == 1 && posID == 5){
+                                              if(currentWeek == 1 && pos == 5){
                                                   positionID = 52;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
                                               }
-                                              if(currentWeek == 1 && posID == 6){
+                                              if(currentWeek == 1 && pos == 6){
                                                   positionID = 67;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
                                               }
-                                              IDEditor.putInt("Primary Key", positionID);
-                                              IDEditor.commit();
+                                              ///week 2 primary keys
+                                              if(currentWeek == 2 && position == 1){
+                                                  positionID = 78;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 2 && pos == 2){
+                                                  positionID = 91;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 2 && pos == 3) {
+                                                  positionID = 105;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 2 && pos == 4){
+                                                  positionID = 116;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 2 && pos == 5){
+                                                  positionID = 129;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 2 && pos == 6){
+                                                  positionID = 144;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              //week 3 primary keys
+                                              if(currentWeek == 3 && position == 1){
+                                                  positionID = 155;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 3 && pos == 2){
+                                                  positionID = 166;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 3 && pos == 3) {
+                                                  positionID = 182;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 3 && pos == 4){
+                                                  positionID = 194;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 3 && pos == 5){
+                                                  positionID = 206;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+                                              if(currentWeek == 3 && pos == 6){
+                                                  positionID = 222;
+                                                  IDEditor.putInt("Primary Key", positionID);
+                                                  IDEditor.commit();
+                                              }
+
 
                                               //shared preferences to get the day for querying
                                               SharedPreferences weekDay = getSharedPreferences("weekDay", Context.MODE_PRIVATE);
                                               SharedPreferences.Editor weekDayEditor = weekDay.edit();
 
-                                              int pos = position + 1;
                                               if(pos == 1){
                                                   weekDayEditor.putString("Day", "Day 1");
                                                   weekDayEditor.commit();
@@ -125,6 +199,18 @@ public class secondList extends AppCompatActivity {
                                               }
                                               if(pos == 3){
                                                   weekDayEditor.putString("Day", "Day 3");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(pos == 4){
+                                                  weekDayEditor.putString("Day", "Day 4");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(pos == 5){
+                                                  weekDayEditor.putString("Day", "Day 5");
+                                                  weekDayEditor.commit();
+                                              }
+                                              if(pos == 6){
+                                                  weekDayEditor.putString("Day", "Day 6");
                                                   weekDayEditor.commit();
                                               }
 
